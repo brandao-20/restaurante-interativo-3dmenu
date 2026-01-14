@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="128" viewBox="0 0 256 128">
+<rect width="256" height="128" fill="#2ba84a" rx="10"/>
+<text x="20" y="70" font-size="40" fill="white" font-family="Arial, Helvetica, sans-serif">SAÍDA</text>
+<polygon points="210,30 230,50 210,70" fill="white"/>
+</svg>
