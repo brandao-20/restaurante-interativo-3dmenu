@@ -1,0 +1,1 @@
+# Sem dependências Python. Este projeto é apenas Web (A-Frame/WebXR).

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Restaurante Interativo - Menu 3D com Preview</title>
+    <style>
+      html, body { margin: 0; height: 100%; background: #0b0f14; overflow: hidden; }
+      .hint {
+        position: fixed; left: 10px; bottom: 10px; z-index: 5;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        font-size: 12px; color: rgba(255,255,255,0.75);
+        background: rgba(0,0,0,0.35); padding: 8px 10px; border-radius: 10px;
+        backdrop-filter: blur(6px);
+      }
+      .hint kbd {
+        background: rgba(255,255,255,0.12); padding: 2px 6px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.12);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hint">
+      Desktop: <kbd>Click</kbd> nos botões • Arrastar no prato para rodar • <kbd>Scroll</kbd> para zoom<br/>
+      Mobile: Tap • Arrastar para rodar • (pinch opcional)<br/>
+      VR: Laser dos controladores • Sem controladores: gaze (fuse)
+    </div>
+
+    <a-scene
+      renderer="antialias: true; colorManagement: true"
+      vr-mode-ui="enabled: true"
+      background="color: #0b0f14"
+      device-orientation-permission-ui="enabled: true"
+    >
+      <a-assets>
+        <img id="texWood" src="/assets/textures/wood_checker.svg" />
+        <audio id="sndClick" src="/assets/sounds/click.wav"></audio>
+        <audio id="sndSuccess" src="/assets/sounds/success.wav"></audio>
+      </a-assets>
+
+      <!-- Luzes -->
+      <a-entity light="type: ambient; intensity: 0.65"></a-entity>
+      <a-entity light="type: directional; intensity: 0.9" position="1 2 1"></a-entity>
+      <a-entity light="type: point; intensity: 0.6; distance: 8" position="-1 2 -1"></a-entity>
+
+      <!-- Sons (tocados via JS) -->
+      <a-entity id="sfxClick" sound="src: #sndClick; volume: 0.85"></a-entity>
+      <a-entity id="sfxSuccess" sound="src: #sndSuccess; volume: 0.95"></a-entity>
+
+      <!-- Ambiente simples (restaurante) -->
+      <a-plane rotation="-90 0 0" width="18" height="18" color="#111a24"></a-plane>
+      <a-box position="0 1.25 -9" width="18" height="2.5" depth="0.2" color="#121a26"></a-box>
+      <a-box position="-9 1.25 0" width="0.2" height="2.5" depth="18" color="#101722"></a-box>
+      <a-box position="9 1.25 0" width="0.2" height="2.5" depth="18" color="#101722"></a-box>
+      <a-box position="0 2.5 0" width="18" height="0.2" depth="18" color="#0f1620"></a-box>
+
+      <!-- Mesa simples à frente do utilizador -->
+      <!-- Tampo da mesa: largura 1m, profundidade 0.7m, espessura 0.04m, centrado a z=-0.85 -->
+      <a-box id="tableTop" position="0 0.72 -0.65" width="1.0" height="0.04" depth="0.70" material="src: #texWood; roughness: 1"></a-box>
+
+      <a-cylinder position="0.47 0.35 -0.35" radius="0.025" height="0.70" color="#4b3a2b"></a-cylinder>
+      <a-cylinder position="-0.47 0.35 -0.35" radius="0.025" height="0.70" color="#4b3a2b"></a-cylinder>
+      <a-cylinder position="0.47 0.35 -0.95" radius="0.025" height="0.70" color="#4b3a2b"></a-cylinder>
+      <a-cylinder position="-0.47 0.35 -0.95" radius="0.025" height="0.70" color="#4b3a2b"></a-cylinder>
+
+      <!-- Montagem para o prato em cima da mesa -->
+      <!-- O prato selecionado será anexado a este mount via JS -->
+      <a-entity id="tableDishMount" position="0 0.78 -0.55"></a-entity>
+
+      <!-- Cadeira simples atrás do utilizador (apenas decorativa, sem colisões) -->
+      <a-box id="chairSeat" position="0 0.45 0.15" width="0.4" height="0.05" depth="0.4" color="#4b3a2b"></a-box>
+      <a-box id="chairBack" position="0 0.75 0.35" width="0.4" height="0.60" depth="0.05" color="#4b3a2b"></a-box>
+
+      <!-- Camera Rig: utilizador sentado à mesa (altura ~1.15m) -->
+      <a-entity id="rig" position="0 1.15 0">
+        <a-entity
+          id="camera"
+          camera
+          look-controls="pointerLockEnabled: false"
+          wasd-controls="enabled: false"
+          position="0 0 0"
+        >
+          <!-- Cursor desktop/mobile (mouse/touch) -->
+          <a-entity
+            id="cursorMouse"
+            cursor="rayOrigin: mouse"
+            raycaster="objects: .interactive; far: 6"
+          ></a-entity>
+
+          <!-- Cursor gaze (usado como fallback em VR sem controladores) -->
+          <a-entity
+            id="cursorGaze"
+            position="0 0 -1"
+            geometry="primitive: ring; radiusInner: 0.006; radiusOuter: 0.010"
+            material="color: white; shader: flat; opacity: 0.85"
+            cursor="fuse: true; fuseTimeout: 850"
+            raycaster="objects: .interactive; far: 6"
+            visible="false"
+          ></a-entity>
+        </a-entity>
+
+        <!-- Controladores VR -->
+        <a-entity id="handL" laser-controls="hand: left" raycaster="objects: .interactive; far: 8"></a-entity>
+        <a-entity id="handR" laser-controls="hand: right" raycaster="objects: .interactive; far: 8"></a-entity>
+
+        <!-- Menu 3D (HUD) posicionado em cima da mesa e inclinado para o utilizador -->
+       <a-entity id="menuRoot" position="0 0.047 -0.10" rotation="5 0 0" menu-ui-root></a-entity>
+
+        <!-- Real-scale mount: coloca o prato a tamanho real ao lado da mesa -->
+        <a-entity id="realScaleMount" position="0.65 1.05 -0.55"></a-entity>
+      </a-entity>
+
+      <script type="module" src="/src/main.js"></script>
+    </a-scene>
+  </body>
+</html>
