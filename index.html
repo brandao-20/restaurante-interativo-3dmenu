@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
-    <title>Restaurante Interativo - Menu 3D com Preview</title>
+    <title>Restaurante Interativo — Menu 3D com Preview</title>
     <style>
       html, body { margin: 0; height: 100%; background: #0b0f14; overflow: hidden; }
       .hint {
@@ -35,6 +35,18 @@
         <img id="texWood" src="/assets/textures/wood_checker.svg" />
         <audio id="sndClick" src="/assets/sounds/click.wav"></audio>
         <audio id="sndSuccess" src="/assets/sounds/success.wav"></audio>
+
+        <!-- Restaurant textures (added) -->
+        <!-- Do not remove or modify existing assets; only append new ones. These assets provide tileable textures and signage for the new restaurant world. -->
+        <img id="rw_tex_floor" src="/assets/textures/restaurant/floor_wood.svg" />
+        <img id="rw_tex_wall" src="/assets/textures/restaurant/wall_plaster.svg" />
+        <img id="rw_tex_ceiling" src="/assets/textures/restaurant/ceiling_panels.svg" />
+        <img id="rw_tex_fabric" src="/assets/textures/restaurant/fabric_red.svg" />
+        <img id="rw_tex_sign_wc" src="/assets/textures/restaurant/sign_wc.svg" />
+        <img id="rw_tex_sign_exit" src="/assets/textures/restaurant/sign_exit.svg" />
+        <img id="rw_tex_art_01" src="/assets/textures/restaurant/art_01.svg" />
+        <img id="rw_tex_art_02" src="/assets/textures/restaurant/art_02.svg" />
+        <img id="rw_tex_menu_board" src="/assets/textures/restaurant/menu_board.svg" />
       </a-assets>
 
       <!-- Luzes -->
@@ -109,6 +121,1147 @@
         <a-entity id="realScaleMount" position="0.65 1.05 -0.55"></a-entity>
       </a-entity>
 
+      <!-- Inicio do mundo do restaurante (restaurantWorld) -->
+      <a-entity id="restaurantWorld">
+        <a-entity id="rw_roomShell">
+        <a-plane rotation="-90 0 0" width="18" height="18" position="0 2.5 -4" material="src: #rw_tex_ceiling"></a-plane>
+      </a-entity>
+        <a-entity id="rw_floorDecor">
+        <a-plane rotation="-90 0 0" width="18" height="18" position="0 0.002 -4" material="src: #rw_tex_floor; roughness:1"></a-plane>
+        <a-plane rotation="-90 0 0" width="2.0" height="12" position="0 0.003 -5" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+      </a-entity>
+        <a-entity id="rw_tables">
+      <a-entity id="rw_table_T01" position="-3.2 0 -2.2">
+        <a-box id="rw_table_T01_top" width="0.95" height="0.06" depth="0.65" position="0 0.74 0" material="src: #rw_tex_floor; roughness: 0.95; metalness: 0.0"></a-box>
+        <a-cylinder radius="0.03" height="0.74" position="0.42 0.37 0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="0.42 0.37 -0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="-0.42 0.37 0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="-0.42 0.37 -0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-plane width="0.85" height="0.55" position="0 0.771 0" rotation="-90 0 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-entity id="rw_chair_T01_N" position="0 0 0.58" rotation="0 180 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T01_S" position="0 0 -0.58" rotation="0 0 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T01_E" position="0.68 0 0" rotation="0 -90 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T01_W" position="-0.68 0 0" rotation="0 90 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-cylinder id="rw_T01_plate_A" radius="0.14" height="0.02" position="0.22 0.78 -0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T01_plate_B" radius="0.14" height="0.02" position="-0.22 0.78 -0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T01_plate_C" radius="0.12" height="0.02" position="0.22 0.78 0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T01_plate_D" radius="0.12" height="0.02" position="-0.22 0.78 0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T01_glass_A" radius="0.04" height="0.12" position="0.32 0.81 -0.02" material="color:#ffffff; opacity:0.35; transparent:true; roughness:0.2"></a-cylinder>
+        <a-cylinder id="rw_T01_glass_B" radius="0.04" height="0.12" position="-0.32 0.81 -0.02" material="color:#ffffff; opacity:0.35; transparent:true; roughness:0.2"></a-cylinder>
+        <a-box id="rw_T01_fork_A" width="0.02" height="0.005" depth="0.18" position="0.12 0.79 -0.12" rotation="0 15 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T01_knife_A" width="0.02" height="0.005" depth="0.18" position="0.32 0.79 -0.12" rotation="0 -10 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T01_fork_B" width="0.02" height="0.005" depth="0.18" position="-0.12 0.79 -0.12" rotation="0 -15 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T01_knife_B" width="0.02" height="0.005" depth="0.18" position="-0.32 0.79 -0.12" rotation="0 10 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-plane id="rw_T01_napkin_A" width="0.18" height="0.18" position="0.10 0.781 -0.20" rotation="-90 10 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-plane id="rw_T01_napkin_B" width="0.18" height="0.18" position="-0.10 0.781 -0.20" rotation="-90 -10 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-cylinder id="rw_T01_candleBase" radius="0.04" height="0.05" position="0 0.795 0" material="color: #dcc6a0"></a-cylinder>
+        <a-sphere id="rw_T01_candleFlame" radius="0.02" position="0 0.84 0" material="color:#fddfa3; emissive:#fddfa3; emissiveIntensity:1"></a-sphere>
+        <a-entity id="rw_lamp_T01" position="0 2.2 0">
+          <a-cylinder radius="0.01" height="0.6" position="0 -0.3 0" material="color:#444444"></a-cylinder>
+          <a-cone radius-bottom="0.18" radius-top="0.05" height="0.22" position="0 -0.62 0" material="color:#4d3a2a"></a-cone>
+          <a-sphere radius="0.04" position="0 -0.68 0" material="emissive:#ffd8a8; emissiveIntensity:0.9"></a-sphere>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_table_T02" position="0.0 0 -2.2">
+        <a-box id="rw_table_T02_top" width="0.95" height="0.06" depth="0.65" position="0 0.74 0" material="src: #rw_tex_floor; roughness: 0.95; metalness: 0.0"></a-box>
+        <a-cylinder radius="0.03" height="0.74" position="0.42 0.37 0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="0.42 0.37 -0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="-0.42 0.37 0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="-0.42 0.37 -0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-plane width="0.85" height="0.55" position="0 0.771 0" rotation="-90 0 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-entity id="rw_chair_T02_N" position="0 0 0.58" rotation="0 180 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T02_S" position="0 0 -0.58" rotation="0 0 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T02_E" position="0.68 0 0" rotation="0 -90 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T02_W" position="-0.68 0 0" rotation="0 90 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-cylinder id="rw_T02_plate_A" radius="0.14" height="0.02" position="0.22 0.78 -0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T02_plate_B" radius="0.14" height="0.02" position="-0.22 0.78 -0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T02_plate_C" radius="0.12" height="0.02" position="0.22 0.78 0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T02_plate_D" radius="0.12" height="0.02" position="-0.22 0.78 0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T02_glass_A" radius="0.04" height="0.12" position="0.32 0.81 -0.02" material="color:#ffffff; opacity:0.35; transparent:true; roughness:0.2"></a-cylinder>
+        <a-cylinder id="rw_T02_glass_B" radius="0.04" height="0.12" position="-0.32 0.81 -0.02" material="color:#ffffff; opacity:0.35; transparent:true; roughness:0.2"></a-cylinder>
+        <a-box id="rw_T02_fork_A" width="0.02" height="0.005" depth="0.18" position="0.12 0.79 -0.12" rotation="0 15 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T02_knife_A" width="0.02" height="0.005" depth="0.18" position="0.32 0.79 -0.12" rotation="0 -10 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T02_fork_B" width="0.02" height="0.005" depth="0.18" position="-0.12 0.79 -0.12" rotation="0 -15 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T02_knife_B" width="0.02" height="0.005" depth="0.18" position="-0.32 0.79 -0.12" rotation="0 10 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-plane id="rw_T02_napkin_A" width="0.18" height="0.18" position="0.10 0.781 -0.20" rotation="-90 10 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-plane id="rw_T02_napkin_B" width="0.18" height="0.18" position="-0.10 0.781 -0.20" rotation="-90 -10 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-cylinder id="rw_T02_candleBase" radius="0.04" height="0.05" position="0 0.795 0" material="color: #dcc6a0"></a-cylinder>
+        <a-sphere id="rw_T02_candleFlame" radius="0.02" position="0 0.84 0" material="color:#fddfa3; emissive:#fddfa3; emissiveIntensity:1"></a-sphere>
+        <a-entity id="rw_lamp_T02" position="0 2.2 0">
+          <a-cylinder radius="0.01" height="0.6" position="0 -0.3 0" material="color:#444444"></a-cylinder>
+          <a-cone radius-bottom="0.18" radius-top="0.05" height="0.22" position="0 -0.62 0" material="color:#4d3a2a"></a-cone>
+          <a-sphere radius="0.04" position="0 -0.68 0" material="emissive:#ffd8a8; emissiveIntensity:0.9"></a-sphere>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_table_T03" position="3.2 0 -2.2">
+        <a-box id="rw_table_T03_top" width="0.95" height="0.06" depth="0.65" position="0 0.74 0" material="src: #rw_tex_floor; roughness: 0.95; metalness: 0.0"></a-box>
+        <a-cylinder radius="0.03" height="0.74" position="0.42 0.37 0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="0.42 0.37 -0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="-0.42 0.37 0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="-0.42 0.37 -0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-plane width="0.85" height="0.55" position="0 0.771 0" rotation="-90 0 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-entity id="rw_chair_T03_N" position="0 0 0.58" rotation="0 180 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T03_S" position="0 0 -0.58" rotation="0 0 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T03_E" position="0.68 0 0" rotation="0 -90 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T03_W" position="-0.68 0 0" rotation="0 90 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-cylinder id="rw_T03_plate_A" radius="0.14" height="0.02" position="0.22 0.78 -0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T03_plate_B" radius="0.14" height="0.02" position="-0.22 0.78 -0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T03_plate_C" radius="0.12" height="0.02" position="0.22 0.78 0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T03_plate_D" radius="0.12" height="0.02" position="-0.22 0.78 0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T03_glass_A" radius="0.04" height="0.12" position="0.32 0.81 -0.02" material="color:#ffffff; opacity:0.35; transparent:true; roughness:0.2"></a-cylinder>
+        <a-cylinder id="rw_T03_glass_B" radius="0.04" height="0.12" position="-0.32 0.81 -0.02" material="color:#ffffff; opacity:0.35; transparent:true; roughness:0.2"></a-cylinder>
+        <a-box id="rw_T03_fork_A" width="0.02" height="0.005" depth="0.18" position="0.12 0.79 -0.12" rotation="0 15 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T03_knife_A" width="0.02" height="0.005" depth="0.18" position="0.32 0.79 -0.12" rotation="0 -10 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T03_fork_B" width="0.02" height="0.005" depth="0.18" position="-0.12 0.79 -0.12" rotation="0 -15 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T03_knife_B" width="0.02" height="0.005" depth="0.18" position="-0.32 0.79 -0.12" rotation="0 10 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-plane id="rw_T03_napkin_A" width="0.18" height="0.18" position="0.10 0.781 -0.20" rotation="-90 10 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-plane id="rw_T03_napkin_B" width="0.18" height="0.18" position="-0.10 0.781 -0.20" rotation="-90 -10 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-cylinder id="rw_T03_candleBase" radius="0.04" height="0.05" position="0 0.795 0" material="color: #dcc6a0"></a-cylinder>
+        <a-sphere id="rw_T03_candleFlame" radius="0.02" position="0 0.84 0" material="color:#fddfa3; emissive:#fddfa3; emissiveIntensity:1"></a-sphere>
+        <a-entity id="rw_lamp_T03" position="0 2.2 0">
+          <a-cylinder radius="0.01" height="0.6" position="0 -0.3 0" material="color:#444444"></a-cylinder>
+          <a-cone radius-bottom="0.18" radius-top="0.05" height="0.22" position="0 -0.62 0" material="color:#4d3a2a"></a-cone>
+          <a-sphere radius="0.04" position="0 -0.68 0" material="emissive:#ffd8a8; emissiveIntensity:0.9"></a-sphere>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_table_T04" position="-3.2 0 -4.2">
+        <a-box id="rw_table_T04_top" width="0.95" height="0.06" depth="0.65" position="0 0.74 0" material="src: #rw_tex_floor; roughness: 0.95; metalness: 0.0"></a-box>
+        <a-cylinder radius="0.03" height="0.74" position="0.42 0.37 0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="0.42 0.37 -0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="-0.42 0.37 0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="-0.42 0.37 -0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-plane width="0.85" height="0.55" position="0 0.771 0" rotation="-90 0 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-entity id="rw_chair_T04_N" position="0 0 0.58" rotation="0 180 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T04_S" position="0 0 -0.58" rotation="0 0 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T04_E" position="0.68 0 0" rotation="0 -90 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T04_W" position="-0.68 0 0" rotation="0 90 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-cylinder id="rw_T04_plate_A" radius="0.14" height="0.02" position="0.22 0.78 -0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T04_plate_B" radius="0.14" height="0.02" position="-0.22 0.78 -0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T04_plate_C" radius="0.12" height="0.02" position="0.22 0.78 0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T04_plate_D" radius="0.12" height="0.02" position="-0.22 0.78 0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T04_glass_A" radius="0.04" height="0.12" position="0.32 0.81 -0.02" material="color:#ffffff; opacity:0.35; transparent:true; roughness:0.2"></a-cylinder>
+        <a-cylinder id="rw_T04_glass_B" radius="0.04" height="0.12" position="-0.32 0.81 -0.02" material="color:#ffffff; opacity:0.35; transparent:true; roughness:0.2"></a-cylinder>
+        <a-box id="rw_T04_fork_A" width="0.02" height="0.005" depth="0.18" position="0.12 0.79 -0.12" rotation="0 15 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T04_knife_A" width="0.02" height="0.005" depth="0.18" position="0.32 0.79 -0.12" rotation="0 -10 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T04_fork_B" width="0.02" height="0.005" depth="0.18" position="-0.12 0.79 -0.12" rotation="0 -15 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T04_knife_B" width="0.02" height="0.005" depth="0.18" position="-0.32 0.79 -0.12" rotation="0 10 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-plane id="rw_T04_napkin_A" width="0.18" height="0.18" position="0.10 0.781 -0.20" rotation="-90 10 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-plane id="rw_T04_napkin_B" width="0.18" height="0.18" position="-0.10 0.781 -0.20" rotation="-90 -10 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-cylinder id="rw_T04_candleBase" radius="0.04" height="0.05" position="0 0.795 0" material="color: #dcc6a0"></a-cylinder>
+        <a-sphere id="rw_T04_candleFlame" radius="0.02" position="0 0.84 0" material="color:#fddfa3; emissive:#fddfa3; emissiveIntensity:1"></a-sphere>
+        <a-entity id="rw_lamp_T04" position="0 2.2 0">
+          <a-cylinder radius="0.01" height="0.6" position="0 -0.3 0" material="color:#444444"></a-cylinder>
+          <a-cone radius-bottom="0.18" radius-top="0.05" height="0.22" position="0 -0.62 0" material="color:#4d3a2a"></a-cone>
+          <a-sphere radius="0.04" position="0 -0.68 0" material="emissive:#ffd8a8; emissiveIntensity:0.9"></a-sphere>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_table_T05" position="3.2 0 -4.2">
+        <a-box id="rw_table_T05_top" width="0.95" height="0.06" depth="0.65" position="0 0.74 0" material="src: #rw_tex_floor; roughness: 0.95; metalness: 0.0"></a-box>
+        <a-cylinder radius="0.03" height="0.74" position="0.42 0.37 0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="0.42 0.37 -0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="-0.42 0.37 0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="-0.42 0.37 -0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-plane width="0.85" height="0.55" position="0 0.771 0" rotation="-90 0 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-entity id="rw_chair_T05_N" position="0 0 0.58" rotation="0 180 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T05_S" position="0 0 -0.58" rotation="0 0 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T05_E" position="0.68 0 0" rotation="0 -90 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T05_W" position="-0.68 0 0" rotation="0 90 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-cylinder id="rw_T05_plate_A" radius="0.14" height="0.02" position="0.22 0.78 -0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T05_plate_B" radius="0.14" height="0.02" position="-0.22 0.78 -0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T05_plate_C" radius="0.12" height="0.02" position="0.22 0.78 0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T05_plate_D" radius="0.12" height="0.02" position="-0.22 0.78 0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T05_glass_A" radius="0.04" height="0.12" position="0.32 0.81 -0.02" material="color:#ffffff; opacity:0.35; transparent:true; roughness:0.2"></a-cylinder>
+        <a-cylinder id="rw_T05_glass_B" radius="0.04" height="0.12" position="-0.32 0.81 -0.02" material="color:#ffffff; opacity:0.35; transparent:true; roughness:0.2"></a-cylinder>
+        <a-box id="rw_T05_fork_A" width="0.02" height="0.005" depth="0.18" position="0.12 0.79 -0.12" rotation="0 15 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T05_knife_A" width="0.02" height="0.005" depth="0.18" position="0.32 0.79 -0.12" rotation="0 -10 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T05_fork_B" width="0.02" height="0.005" depth="0.18" position="-0.12 0.79 -0.12" rotation="0 -15 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T05_knife_B" width="0.02" height="0.005" depth="0.18" position="-0.32 0.79 -0.12" rotation="0 10 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-plane id="rw_T05_napkin_A" width="0.18" height="0.18" position="0.10 0.781 -0.20" rotation="-90 10 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-plane id="rw_T05_napkin_B" width="0.18" height="0.18" position="-0.10 0.781 -0.20" rotation="-90 -10 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-cylinder id="rw_T05_candleBase" radius="0.04" height="0.05" position="0 0.795 0" material="color: #dcc6a0"></a-cylinder>
+        <a-sphere id="rw_T05_candleFlame" radius="0.02" position="0 0.84 0" material="color:#fddfa3; emissive:#fddfa3; emissiveIntensity:1"></a-sphere>
+        <a-entity id="rw_lamp_T05" position="0 2.2 0">
+          <a-cylinder radius="0.01" height="0.6" position="0 -0.3 0" material="color:#444444"></a-cylinder>
+          <a-cone radius-bottom="0.18" radius-top="0.05" height="0.22" position="0 -0.62 0" material="color:#4d3a2a"></a-cone>
+          <a-sphere radius="0.04" position="0 -0.68 0" material="emissive:#ffd8a8; emissiveIntensity:0.9"></a-sphere>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_table_T06" position="-4.2 0 -6.2">
+        <a-box id="rw_table_T06_top" width="0.95" height="0.06" depth="0.65" position="0 0.74 0" material="src: #rw_tex_floor; roughness: 0.95; metalness: 0.0"></a-box>
+        <a-cylinder radius="0.03" height="0.74" position="0.42 0.37 0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="0.42 0.37 -0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="-0.42 0.37 0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="-0.42 0.37 -0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-plane width="0.85" height="0.55" position="0 0.771 0" rotation="-90 0 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-entity id="rw_chair_T06_N" position="0 0 0.58" rotation="0 180 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T06_S" position="0 0 -0.58" rotation="0 0 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T06_E" position="0.68 0 0" rotation="0 -90 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T06_W" position="-0.68 0 0" rotation="0 90 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-cylinder id="rw_T06_plate_A" radius="0.14" height="0.02" position="0.22 0.78 -0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T06_plate_B" radius="0.14" height="0.02" position="-0.22 0.78 -0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T06_plate_C" radius="0.12" height="0.02" position="0.22 0.78 0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T06_plate_D" radius="0.12" height="0.02" position="-0.22 0.78 0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T06_glass_A" radius="0.04" height="0.12" position="0.32 0.81 -0.02" material="color:#ffffff; opacity:0.35; transparent:true; roughness:0.2"></a-cylinder>
+        <a-cylinder id="rw_T06_glass_B" radius="0.04" height="0.12" position="-0.32 0.81 -0.02" material="color:#ffffff; opacity:0.35; transparent:true; roughness:0.2"></a-cylinder>
+        <a-box id="rw_T06_fork_A" width="0.02" height="0.005" depth="0.18" position="0.12 0.79 -0.12" rotation="0 15 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T06_knife_A" width="0.02" height="0.005" depth="0.18" position="0.32 0.79 -0.12" rotation="0 -10 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T06_fork_B" width="0.02" height="0.005" depth="0.18" position="-0.12 0.79 -0.12" rotation="0 -15 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T06_knife_B" width="0.02" height="0.005" depth="0.18" position="-0.32 0.79 -0.12" rotation="0 10 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-plane id="rw_T06_napkin_A" width="0.18" height="0.18" position="0.10 0.781 -0.20" rotation="-90 10 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-plane id="rw_T06_napkin_B" width="0.18" height="0.18" position="-0.10 0.781 -0.20" rotation="-90 -10 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-cylinder id="rw_T06_candleBase" radius="0.04" height="0.05" position="0 0.795 0" material="color: #dcc6a0"></a-cylinder>
+        <a-sphere id="rw_T06_candleFlame" radius="0.02" position="0 0.84 0" material="color:#fddfa3; emissive:#fddfa3; emissiveIntensity:1"></a-sphere>
+        <a-entity id="rw_lamp_T06" position="0 2.2 0">
+          <a-cylinder radius="0.01" height="0.6" position="0 -0.3 0" material="color:#444444"></a-cylinder>
+          <a-cone radius-bottom="0.18" radius-top="0.05" height="0.22" position="0 -0.62 0" material="color:#4d3a2a"></a-cone>
+          <a-sphere radius="0.04" position="0 -0.68 0" material="emissive:#ffd8a8; emissiveIntensity:0.9"></a-sphere>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_table_T07" position="0.0 0 -6.2">
+        <a-box id="rw_table_T07_top" width="0.95" height="0.06" depth="0.65" position="0 0.74 0" material="src: #rw_tex_floor; roughness: 0.95; metalness: 0.0"></a-box>
+        <a-cylinder radius="0.03" height="0.74" position="0.42 0.37 0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="0.42 0.37 -0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="-0.42 0.37 0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="-0.42 0.37 -0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-plane width="0.85" height="0.55" position="0 0.771 0" rotation="-90 0 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-entity id="rw_chair_T07_N" position="0 0 0.58" rotation="0 180 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T07_S" position="0 0 -0.58" rotation="0 0 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T07_E" position="0.68 0 0" rotation="0 -90 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T07_W" position="-0.68 0 0" rotation="0 90 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-cylinder id="rw_T07_plate_A" radius="0.14" height="0.02" position="0.22 0.78 -0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T07_plate_B" radius="0.14" height="0.02" position="-0.22 0.78 -0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T07_plate_C" radius="0.12" height="0.02" position="0.22 0.78 0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T07_plate_D" radius="0.12" height="0.02" position="-0.22 0.78 0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T07_glass_A" radius="0.04" height="0.12" position="0.32 0.81 -0.02" material="color:#ffffff; opacity:0.35; transparent:true; roughness:0.2"></a-cylinder>
+        <a-cylinder id="rw_T07_glass_B" radius="0.04" height="0.12" position="-0.32 0.81 -0.02" material="color:#ffffff; opacity:0.35; transparent:true; roughness:0.2"></a-cylinder>
+        <a-box id="rw_T07_fork_A" width="0.02" height="0.005" depth="0.18" position="0.12 0.79 -0.12" rotation="0 15 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T07_knife_A" width="0.02" height="0.005" depth="0.18" position="0.32 0.79 -0.12" rotation="0 -10 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T07_fork_B" width="0.02" height="0.005" depth="0.18" position="-0.12 0.79 -0.12" rotation="0 -15 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T07_knife_B" width="0.02" height="0.005" depth="0.18" position="-0.32 0.79 -0.12" rotation="0 10 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-plane id="rw_T07_napkin_A" width="0.18" height="0.18" position="0.10 0.781 -0.20" rotation="-90 10 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-plane id="rw_T07_napkin_B" width="0.18" height="0.18" position="-0.10 0.781 -0.20" rotation="-90 -10 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-cylinder id="rw_T07_candleBase" radius="0.04" height="0.05" position="0 0.795 0" material="color: #dcc6a0"></a-cylinder>
+        <a-sphere id="rw_T07_candleFlame" radius="0.02" position="0 0.84 0" material="color:#fddfa3; emissive:#fddfa3; emissiveIntensity:1"></a-sphere>
+        <a-entity id="rw_lamp_T07" position="0 2.2 0">
+          <a-cylinder radius="0.01" height="0.6" position="0 -0.3 0" material="color:#444444"></a-cylinder>
+          <a-cone radius-bottom="0.18" radius-top="0.05" height="0.22" position="0 -0.62 0" material="color:#4d3a2a"></a-cone>
+          <a-sphere radius="0.04" position="0 -0.68 0" material="emissive:#ffd8a8; emissiveIntensity:0.9"></a-sphere>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_table_T08" position="4.2 0 -6.2">
+        <a-box id="rw_table_T08_top" width="0.95" height="0.06" depth="0.65" position="0 0.74 0" material="src: #rw_tex_floor; roughness: 0.95; metalness: 0.0"></a-box>
+        <a-cylinder radius="0.03" height="0.74" position="0.42 0.37 0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="0.42 0.37 -0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="-0.42 0.37 0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="-0.42 0.37 -0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-plane width="0.85" height="0.55" position="0 0.771 0" rotation="-90 0 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-entity id="rw_chair_T08_N" position="0 0 0.58" rotation="0 180 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T08_S" position="0 0 -0.58" rotation="0 0 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T08_E" position="0.68 0 0" rotation="0 -90 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T08_W" position="-0.68 0 0" rotation="0 90 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-cylinder id="rw_T08_plate_A" radius="0.14" height="0.02" position="0.22 0.78 -0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T08_plate_B" radius="0.14" height="0.02" position="-0.22 0.78 -0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T08_plate_C" radius="0.12" height="0.02" position="0.22 0.78 0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T08_plate_D" radius="0.12" height="0.02" position="-0.22 0.78 0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T08_glass_A" radius="0.04" height="0.12" position="0.32 0.81 -0.02" material="color:#ffffff; opacity:0.35; transparent:true; roughness:0.2"></a-cylinder>
+        <a-cylinder id="rw_T08_glass_B" radius="0.04" height="0.12" position="-0.32 0.81 -0.02" material="color:#ffffff; opacity:0.35; transparent:true; roughness:0.2"></a-cylinder>
+        <a-box id="rw_T08_fork_A" width="0.02" height="0.005" depth="0.18" position="0.12 0.79 -0.12" rotation="0 15 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T08_knife_A" width="0.02" height="0.005" depth="0.18" position="0.32 0.79 -0.12" rotation="0 -10 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T08_fork_B" width="0.02" height="0.005" depth="0.18" position="-0.12 0.79 -0.12" rotation="0 -15 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T08_knife_B" width="0.02" height="0.005" depth="0.18" position="-0.32 0.79 -0.12" rotation="0 10 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-plane id="rw_T08_napkin_A" width="0.18" height="0.18" position="0.10 0.781 -0.20" rotation="-90 10 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-plane id="rw_T08_napkin_B" width="0.18" height="0.18" position="-0.10 0.781 -0.20" rotation="-90 -10 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-cylinder id="rw_T08_candleBase" radius="0.04" height="0.05" position="0 0.795 0" material="color: #dcc6a0"></a-cylinder>
+        <a-sphere id="rw_T08_candleFlame" radius="0.02" position="0 0.84 0" material="color:#fddfa3; emissive:#fddfa3; emissiveIntensity:1"></a-sphere>
+        <a-entity id="rw_lamp_T08" position="0 2.2 0">
+          <a-cylinder radius="0.01" height="0.6" position="0 -0.3 0" material="color:#444444"></a-cylinder>
+          <a-cone radius-bottom="0.18" radius-top="0.05" height="0.22" position="0 -0.62 0" material="color:#4d3a2a"></a-cone>
+          <a-sphere radius="0.04" position="0 -0.68 0" material="emissive:#ffd8a8; emissiveIntensity:0.9"></a-sphere>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_table_T09" position="-3.2 0 -7.8">
+        <a-box id="rw_table_T09_top" width="0.95" height="0.06" depth="0.65" position="0 0.74 0" material="src: #rw_tex_floor; roughness: 0.95; metalness: 0.0"></a-box>
+        <a-cylinder radius="0.03" height="0.74" position="0.42 0.37 0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="0.42 0.37 -0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="-0.42 0.37 0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="-0.42 0.37 -0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-plane width="0.85" height="0.55" position="0 0.771 0" rotation="-90 0 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-entity id="rw_chair_T09_N" position="0 0 0.58" rotation="0 180 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T09_S" position="0 0 -0.58" rotation="0 0 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T09_E" position="0.68 0 0" rotation="0 -90 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T09_W" position="-0.68 0 0" rotation="0 90 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-cylinder id="rw_T09_plate_A" radius="0.14" height="0.02" position="0.22 0.78 -0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T09_plate_B" radius="0.14" height="0.02" position="-0.22 0.78 -0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T09_plate_C" radius="0.12" height="0.02" position="0.22 0.78 0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T09_plate_D" radius="0.12" height="0.02" position="-0.22 0.78 0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T09_glass_A" radius="0.04" height="0.12" position="0.32 0.81 -0.02" material="color:#ffffff; opacity:0.35; transparent:true; roughness:0.2"></a-cylinder>
+        <a-cylinder id="rw_T09_glass_B" radius="0.04" height="0.12" position="-0.32 0.81 -0.02" material="color:#ffffff; opacity:0.35; transparent:true; roughness:0.2"></a-cylinder>
+        <a-box id="rw_T09_fork_A" width="0.02" height="0.005" depth="0.18" position="0.12 0.79 -0.12" rotation="0 15 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T09_knife_A" width="0.02" height="0.005" depth="0.18" position="0.32 0.79 -0.12" rotation="0 -10 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T09_fork_B" width="0.02" height="0.005" depth="0.18" position="-0.12 0.79 -0.12" rotation="0 -15 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T09_knife_B" width="0.02" height="0.005" depth="0.18" position="-0.32 0.79 -0.12" rotation="0 10 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-plane id="rw_T09_napkin_A" width="0.18" height="0.18" position="0.10 0.781 -0.20" rotation="-90 10 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-plane id="rw_T09_napkin_B" width="0.18" height="0.18" position="-0.10 0.781 -0.20" rotation="-90 -10 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-cylinder id="rw_T09_candleBase" radius="0.04" height="0.05" position="0 0.795 0" material="color: #dcc6a0"></a-cylinder>
+        <a-sphere id="rw_T09_candleFlame" radius="0.02" position="0 0.84 0" material="color:#fddfa3; emissive:#fddfa3; emissiveIntensity:1"></a-sphere>
+        <a-entity id="rw_lamp_T09" position="0 2.2 0">
+          <a-cylinder radius="0.01" height="0.6" position="0 -0.3 0" material="color:#444444"></a-cylinder>
+          <a-cone radius-bottom="0.18" radius-top="0.05" height="0.22" position="0 -0.62 0" material="color:#4d3a2a"></a-cone>
+          <a-sphere radius="0.04" position="0 -0.68 0" material="emissive:#ffd8a8; emissiveIntensity:0.9"></a-sphere>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_table_T10" position="3.2 0 -7.8">
+        <a-box id="rw_table_T10_top" width="0.95" height="0.06" depth="0.65" position="0 0.74 0" material="src: #rw_tex_floor; roughness: 0.95; metalness: 0.0"></a-box>
+        <a-cylinder radius="0.03" height="0.74" position="0.42 0.37 0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="0.42 0.37 -0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="-0.42 0.37 0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-cylinder radius="0.03" height="0.74" position="-0.42 0.37 -0.28" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+        <a-plane width="0.85" height="0.55" position="0 0.771 0" rotation="-90 0 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-entity id="rw_chair_T10_N" position="0 0 0.58" rotation="0 180 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T10_S" position="0 0 -0.58" rotation="0 0 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T10_E" position="0.68 0 0" rotation="0 -90 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-entity id="rw_chair_T10_W" position="-0.68 0 0" rotation="0 90 0">
+          <a-box width="0.42" height="0.06" depth="0.42" position="0 0.45 0" material="color: #52392e; roughness: 0.9"></a-box>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-cylinder radius="0.02" height="0.45" position="-0.18 0.225 -0.18" material="color: #3b2a1a; roughness: 1"></a-cylinder>
+          <a-box width="0.42" height="0.52" depth="0.06" position="0 0.74 -0.18" material="color: #52392e; roughness: 0.9"></a-box>
+        </a-entity>
+        <a-cylinder id="rw_T10_plate_A" radius="0.14" height="0.02" position="0.22 0.78 -0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T10_plate_B" radius="0.14" height="0.02" position="-0.22 0.78 -0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T10_plate_C" radius="0.12" height="0.02" position="0.22 0.78 0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T10_plate_D" radius="0.12" height="0.02" position="-0.22 0.78 0.12" material="color:#f4f1ea; roughness:0.8"></a-cylinder>
+        <a-cylinder id="rw_T10_glass_A" radius="0.04" height="0.12" position="0.32 0.81 -0.02" material="color:#ffffff; opacity:0.35; transparent:true; roughness:0.2"></a-cylinder>
+        <a-cylinder id="rw_T10_glass_B" radius="0.04" height="0.12" position="-0.32 0.81 -0.02" material="color:#ffffff; opacity:0.35; transparent:true; roughness:0.2"></a-cylinder>
+        <a-box id="rw_T10_fork_A" width="0.02" height="0.005" depth="0.18" position="0.12 0.79 -0.12" rotation="0 15 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T10_knife_A" width="0.02" height="0.005" depth="0.18" position="0.32 0.79 -0.12" rotation="0 -10 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T10_fork_B" width="0.02" height="0.005" depth="0.18" position="-0.12 0.79 -0.12" rotation="0 -15 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-box id="rw_T10_knife_B" width="0.02" height="0.005" depth="0.18" position="-0.32 0.79 -0.12" rotation="0 10 0" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+        <a-plane id="rw_T10_napkin_A" width="0.18" height="0.18" position="0.10 0.781 -0.20" rotation="-90 10 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-plane id="rw_T10_napkin_B" width="0.18" height="0.18" position="-0.10 0.781 -0.20" rotation="-90 -10 0" material="src: #rw_tex_fabric; roughness:1"></a-plane>
+        <a-cylinder id="rw_T10_candleBase" radius="0.04" height="0.05" position="0 0.795 0" material="color: #dcc6a0"></a-cylinder>
+        <a-sphere id="rw_T10_candleFlame" radius="0.02" position="0 0.84 0" material="color:#fddfa3; emissive:#fddfa3; emissiveIntensity:1"></a-sphere>
+        <a-entity id="rw_lamp_T10" position="0 2.2 0">
+          <a-cylinder radius="0.01" height="0.6" position="0 -0.3 0" material="color:#444444"></a-cylinder>
+          <a-cone radius-bottom="0.18" radius-top="0.05" height="0.22" position="0 -0.62 0" material="color:#4d3a2a"></a-cone>
+          <a-sphere radius="0.04" position="0 -0.68 0" material="emissive:#ffd8a8; emissiveIntensity:0.9"></a-sphere>
+        </a-entity>
+      </a-entity>
+        </a-entity>
+        <a-entity id="rw_people">
+      <a-entity id="rw_person_P01" position="-3.2 0 -1.58" rotation="0 180 0">
+        <a-cylinder id="rw_person_P01_torso" radius="0.16" height="0.42" position="0 1.10 0" material="color:#2f5d62" animation__torso="property: position; from: 0 1.10 0; to: 0 1.11 0; dir: alternate; dur: 1600; loop: true; delay: 60; easing: easeInOutSine"></a-cylinder>
+        <a-cylinder id="rw_person_P01_waist" radius="0.14" height="0.18" position="0 0.86 0" material="color:#2b2d42"></a-cylinder>
+        <a-sphere id="rw_person_P01_head" radius="0.12" position="0 1.45 0" material="color:#d8b18f" animation__head="property: rotation; from: 0 0 0; to: 8 0 0; dir: alternate; dur: 2200; loop: true; delay: 120 ; easing: easeInOutSine">
+          <a-sphere id="rw_person_P01_hair" radius="0.12" scale="1 0.6 1" position="0 0.10 0" material="color:#2b2b2b"></a-sphere>
+        </a-sphere>
+        <a-entity id="rw_person_P01_leftArmPivot" position="-0.18 1.22 0">
+          <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#2f5d62"></a-box>
+          <a-sphere radius="0.035" position="0 -0.30 0" material="color:#d8b18f"></a-sphere>
+        </a-entity>
+        <a-entity id="rw_person_P01_rightArmPivot" position="0.18 1.22 0">
+          <a-entity animation__rightArm="property: rotation; from: 10 0 0; to: 70 0 0; dir: alternate; dur: 2200; loop: true; delay: 0; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#2f5d62"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#d8b18f">
+              <a-box width="0.02" height="0.005" depth="0.18" position="0 0 -0.09" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+            </a-sphere>
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_person_P02" position="-3.2 0 -2.8200000000000003" rotation="0 0 0">
+        <a-cylinder id="rw_person_P02_torso" radius="0.16" height="0.42" position="0 1.10 0" material="color:#8a4f7d" animation__torso="property: position; from: 0 1.10 0; to: 0 1.11 0; dir: alternate; dur: 1600; loop: true; delay: 180; easing: easeInOutSine"></a-cylinder>
+        <a-cylinder id="rw_person_P02_waist" radius="0.14" height="0.18" position="0 0.86 0" material="color:#343a40"></a-cylinder>
+        <a-sphere id="rw_person_P02_head" radius="0.12" position="0 1.45 0" material="color:#c99b7a" animation__head="property: rotation; from: 0 0 0; to: 8 0 0; dir: alternate; dur: 2200; loop: true; delay: 240 ; easing: easeInOutSine">
+          <a-sphere id="rw_person_P02_hair" radius="0.12" scale="1 0.6 1" position="0 0.10 0" material="color:#5b3a29"></a-sphere>
+        </a-sphere>
+        <a-entity id="rw_person_P02_leftArmPivot" position="-0.18 1.22 0">
+          <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#8a4f7d"></a-box>
+          <a-sphere radius="0.035" position="0 -0.30 0" material="color:#c99b7a"></a-sphere>
+        </a-entity>
+        <a-entity id="rw_person_P02_rightArmPivot" position="0.18 1.22 0">
+          <a-entity animation__rightArm="property: rotation; from: 10 0 0; to: 70 0 0; dir: alternate; dur: 2200; loop: true; delay: 120; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#8a4f7d"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#c99b7a">
+              <a-box width="0.02" height="0.005" depth="0.18" position="0 0 -0.09" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+            </a-sphere>
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_person_P03" position="0.0 0 -1.58" rotation="0 180 0">
+        <a-cylinder id="rw_person_P03_torso" radius="0.16" height="0.42" position="0 1.10 0" material="color:#d4a373" animation__torso="property: position; from: 0 1.10 0; to: 0 1.11 0; dir: alternate; dur: 2000; loop: true; delay: 580; easing: easeInOutSine"></a-cylinder>
+        <a-cylinder id="rw_person_P03_waist" radius="0.14" height="0.18" position="0 0.86 0" material="color:#3a5a40"></a-cylinder>
+        <a-sphere id="rw_person_P03_head" radius="0.12" position="0 1.45 0" material="color:#e0c2a2" animation__head="property: rotation; from: 0 -10 0; to: 0 10 0; dir: alternate; dur: 2500; loop: true; delay: 480 ; easing: easeInOutSine">
+          <a-sphere id="rw_person_P03_hair" radius="0.12" scale="1 0.6 1" position="0 0.10 0" material="color:#a36f3b"></a-sphere>
+        </a-sphere>
+        <a-entity id="rw_person_P03_leftArmPivot" position="-0.18 1.22 0">
+          <a-entity animation__leftArm="property: rotation; from: 0 0 -10; to: 0 0 20; dir: alternate; dur: 2400; loop: true; delay: 680; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#d4a373"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#e0c2a2"></a-sphere>
+          </a-entity>
+        </a-entity>
+        <a-entity id="rw_person_P03_rightArmPivot" position="0.18 1.22 0">
+          <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#d4a373"></a-box>
+          <a-sphere radius="0.035" position="0 -0.30 0" material="color:#e0c2a2"></a-sphere>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_person_P04" position="0.0 0 -2.8200000000000003" rotation="0 0 0">
+        <a-cylinder id="rw_person_P04_torso" radius="0.16" height="0.42" position="0 1.10 0" material="color:#457b9d" animation__torso="property: position; from: 0 1.10 0; to: 0 1.11 0; dir: alternate; dur: 2000; loop: true; delay: 700; easing: easeInOutSine"></a-cylinder>
+        <a-cylinder id="rw_person_P04_waist" radius="0.14" height="0.18" position="0 0.86 0" material="color:#4a4e69"></a-cylinder>
+        <a-sphere id="rw_person_P04_head" radius="0.12" position="0 1.45 0" material="color:#b98b6f" animation__head="property: rotation; from: 0 -10 0; to: 0 10 0; dir: alternate; dur: 2500; loop: true; delay: 600 ; easing: easeInOutSine">
+          <a-sphere id="rw_person_P04_hair" radius="0.12" scale="1 0.6 1" position="0 0.10 0" material="color:#1c1c1c"></a-sphere>
+        </a-sphere>
+        <a-entity id="rw_person_P04_leftArmPivot" position="-0.18 1.22 0">
+          <a-entity animation__leftArm="property: rotation; from: 0 0 -10; to: 0 0 20; dir: alternate; dur: 2400; loop: true; delay: 800; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#457b9d"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#b98b6f"></a-sphere>
+          </a-entity>
+        </a-entity>
+        <a-entity id="rw_person_P04_rightArmPivot" position="0.18 1.22 0">
+          <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#457b9d"></a-box>
+          <a-sphere radius="0.035" position="0 -0.30 0" material="color:#b98b6f"></a-sphere>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_person_P05" position="3.2 0 -1.58" rotation="0 180 0">
+        <a-cylinder id="rw_person_P05_torso" radius="0.16" height="0.42" position="0 1.10 0" material="color:#6d6875" animation__torso="property: position; from: 0 1.10 0; to: 0 1.11 0; dir: alternate; dur: 1600; loop: true; delay: 540; easing: easeInOutSine"></a-cylinder>
+        <a-cylinder id="rw_person_P05_waist" radius="0.14" height="0.18" position="0 0.86 0" material="color:#22223b"></a-cylinder>
+        <a-sphere id="rw_person_P05_head" radius="0.12" position="0 1.45 0" material="color:#d8b18f" animation__head="property: rotation; from: 0 0 0; to: 8 0 0; dir: alternate; dur: 2200; loop: true; delay: 600 ; easing: easeInOutSine">
+          <a-sphere id="rw_person_P05_hair" radius="0.12" scale="1 0.6 1" position="0 0.10 0" material="color:#2b2b2b"></a-sphere>
+        </a-sphere>
+        <a-entity id="rw_person_P05_leftArmPivot" position="-0.18 1.22 0">
+          <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#6d6875"></a-box>
+          <a-sphere radius="0.035" position="0 -0.30 0" material="color:#d8b18f"></a-sphere>
+        </a-entity>
+        <a-entity id="rw_person_P05_rightArmPivot" position="0.18 1.22 0">
+          <a-entity animation__rightArm="property: rotation; from: 10 0 0; to: 70 0 0; dir: alternate; dur: 2200; loop: true; delay: 480; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#6d6875"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#d8b18f">
+              <a-box width="0.02" height="0.005" depth="0.18" position="0 0 -0.09" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+            </a-sphere>
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_person_P06" position="3.2 0 -2.8200000000000003" rotation="0 0 0">
+        <a-cylinder id="rw_person_P06_torso" radius="0.16" height="0.42" position="0 1.10 0" material="color:#e63946" animation__torso="property: position; from: 0 1.10 0; to: 0 1.11 0; dir: alternate; dur: 1600; loop: true; delay: 660; easing: easeInOutSine"></a-cylinder>
+        <a-cylinder id="rw_person_P06_waist" radius="0.14" height="0.18" position="0 0.86 0" material="color:#2b2d42"></a-cylinder>
+        <a-sphere id="rw_person_P06_head" radius="0.12" position="0 1.45 0" material="color:#c99b7a" animation__head="property: rotation; from: 0 0 0; to: 8 0 0; dir: alternate; dur: 2200; loop: true; delay: 720 ; easing: easeInOutSine">
+          <a-sphere id="rw_person_P06_hair" radius="0.12" scale="1 0.6 1" position="0 0.10 0" material="color:#5b3a29"></a-sphere>
+        </a-sphere>
+        <a-entity id="rw_person_P06_leftArmPivot" position="-0.18 1.22 0">
+          <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#e63946"></a-box>
+          <a-sphere radius="0.035" position="0 -0.30 0" material="color:#c99b7a"></a-sphere>
+        </a-entity>
+        <a-entity id="rw_person_P06_rightArmPivot" position="0.18 1.22 0">
+          <a-entity animation__rightArm="property: rotation; from: 10 0 0; to: 70 0 0; dir: alternate; dur: 2200; loop: true; delay: 600; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#e63946"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#c99b7a">
+              <a-box width="0.02" height="0.005" depth="0.18" position="0 0 -0.09" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+            </a-sphere>
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_person_P07" position="-3.2 0 -3.58" rotation="0 180 0">
+        <a-cylinder id="rw_person_P07_torso" radius="0.16" height="0.42" position="0 1.10 0" material="color:#1d3557" animation__torso="property: position; from: 0 1.10 0; to: 0 1.11 0; dir: alternate; dur: 1600; loop: true; delay: 780; easing: easeInOutSine"></a-cylinder>
+        <a-cylinder id="rw_person_P07_waist" radius="0.14" height="0.18" position="0 0.86 0" material="color:#343a40"></a-cylinder>
+        <a-sphere id="rw_person_P07_head" radius="0.12" position="0 1.45 0" material="color:#e0c2a2" animation__head="property: rotation; from: 0 0 0; to: 8 0 0; dir: alternate; dur: 2200; loop: true; delay: 840 ; easing: easeInOutSine">
+          <a-sphere id="rw_person_P07_hair" radius="0.12" scale="1 0.6 1" position="0 0.10 0" material="color:#a36f3b"></a-sphere>
+        </a-sphere>
+        <a-entity id="rw_person_P07_leftArmPivot" position="-0.18 1.22 0">
+          <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#1d3557"></a-box>
+          <a-sphere radius="0.035" position="0 -0.30 0" material="color:#e0c2a2"></a-sphere>
+        </a-entity>
+        <a-entity id="rw_person_P07_rightArmPivot" position="0.18 1.22 0">
+          <a-entity animation__rightArm="property: rotation; from: 10 0 0; to: 70 0 0; dir: alternate; dur: 2200; loop: true; delay: 720; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#1d3557"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#e0c2a2">
+              <a-box width="0.02" height="0.005" depth="0.18" position="0 0 -0.09" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+            </a-sphere>
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_person_P08" position="-3.2 0 -4.82" rotation="0 0 0">
+        <a-cylinder id="rw_person_P08_torso" radius="0.16" height="0.42" position="0 1.10 0" material="color:#2f5d62" animation__torso="property: position; from: 0 1.10 0; to: 0 1.11 0; dir: alternate; dur: 1600; loop: true; delay: 900; easing: easeInOutSine"></a-cylinder>
+        <a-cylinder id="rw_person_P08_waist" radius="0.14" height="0.18" position="0 0.86 0" material="color:#3a5a40"></a-cylinder>
+        <a-sphere id="rw_person_P08_head" radius="0.12" position="0 1.45 0" material="color:#b98b6f" animation__head="property: rotation; from: 0 0 0; to: 8 0 0; dir: alternate; dur: 2200; loop: true; delay: 960 ; easing: easeInOutSine">
+          <a-sphere id="rw_person_P08_hair" radius="0.12" scale="1 0.6 1" position="0 0.10 0" material="color:#1c1c1c"></a-sphere>
+        </a-sphere>
+        <a-entity id="rw_person_P08_leftArmPivot" position="-0.18 1.22 0">
+          <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#2f5d62"></a-box>
+          <a-sphere radius="0.035" position="0 -0.30 0" material="color:#b98b6f"></a-sphere>
+        </a-entity>
+        <a-entity id="rw_person_P08_rightArmPivot" position="0.18 1.22 0">
+          <a-entity animation__rightArm="property: rotation; from: 10 0 0; to: 70 0 0; dir: alternate; dur: 2200; loop: true; delay: 840; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#2f5d62"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#b98b6f">
+              <a-box width="0.02" height="0.005" depth="0.18" position="0 0 -0.09" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+            </a-sphere>
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_person_P09" position="3.2 0 -3.58" rotation="0 180 0">
+        <a-cylinder id="rw_person_P09_torso" radius="0.16" height="0.42" position="0 1.10 0" material="color:#8a4f7d" animation__torso="property: position; from: 0 1.10 0; to: 0 1.11 0; dir: alternate; dur: 2000; loop: true; delay: 1300; easing: easeInOutSine"></a-cylinder>
+        <a-cylinder id="rw_person_P09_waist" radius="0.14" height="0.18" position="0 0.86 0" material="color:#4a4e69"></a-cylinder>
+        <a-sphere id="rw_person_P09_head" radius="0.12" position="0 1.45 0" material="color:#d8b18f" animation__head="property: rotation; from: 0 -10 0; to: 0 10 0; dir: alternate; dur: 2500; loop: true; delay: 1200 ; easing: easeInOutSine">
+          <a-sphere id="rw_person_P09_hair" radius="0.12" scale="1 0.6 1" position="0 0.10 0" material="color:#2b2b2b"></a-sphere>
+        </a-sphere>
+        <a-entity id="rw_person_P09_leftArmPivot" position="-0.18 1.22 0">
+          <a-entity animation__leftArm="property: rotation; from: 0 0 -10; to: 0 0 20; dir: alternate; dur: 2400; loop: true; delay: 1400; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#8a4f7d"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#d8b18f"></a-sphere>
+          </a-entity>
+        </a-entity>
+        <a-entity id="rw_person_P09_rightArmPivot" position="0.18 1.22 0">
+          <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#8a4f7d"></a-box>
+          <a-sphere radius="0.035" position="0 -0.30 0" material="color:#d8b18f"></a-sphere>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_person_P10" position="3.2 0 -4.82" rotation="0 0 0">
+        <a-cylinder id="rw_person_P10_torso" radius="0.16" height="0.42" position="0 1.10 0" material="color:#d4a373" animation__torso="property: position; from: 0 1.10 0; to: 0 1.11 0; dir: alternate; dur: 2000; loop: true; delay: 1420; easing: easeInOutSine"></a-cylinder>
+        <a-cylinder id="rw_person_P10_waist" radius="0.14" height="0.18" position="0 0.86 0" material="color:#22223b"></a-cylinder>
+        <a-sphere id="rw_person_P10_head" radius="0.12" position="0 1.45 0" material="color:#c99b7a" animation__head="property: rotation; from: 0 -10 0; to: 0 10 0; dir: alternate; dur: 2500; loop: true; delay: 1320 ; easing: easeInOutSine">
+          <a-sphere id="rw_person_P10_hair" radius="0.12" scale="1 0.6 1" position="0 0.10 0" material="color:#5b3a29"></a-sphere>
+        </a-sphere>
+        <a-entity id="rw_person_P10_leftArmPivot" position="-0.18 1.22 0">
+          <a-entity animation__leftArm="property: rotation; from: 0 0 -10; to: 0 0 20; dir: alternate; dur: 2400; loop: true; delay: 1520; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#d4a373"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#c99b7a"></a-sphere>
+          </a-entity>
+        </a-entity>
+        <a-entity id="rw_person_P10_rightArmPivot" position="0.18 1.22 0">
+          <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#d4a373"></a-box>
+          <a-sphere radius="0.035" position="0 -0.30 0" material="color:#c99b7a"></a-sphere>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_person_P11" position="-4.2 0 -5.58" rotation="0 180 0">
+        <a-cylinder id="rw_person_P11_torso" radius="0.16" height="0.42" position="0 1.10 0" material="color:#457b9d" animation__torso="property: position; from: 0 1.10 0; to: 0 1.11 0; dir: alternate; dur: 1600; loop: true; delay: 1260; easing: easeInOutSine"></a-cylinder>
+        <a-cylinder id="rw_person_P11_waist" radius="0.14" height="0.18" position="0 0.86 0" material="color:#2b2d42"></a-cylinder>
+        <a-sphere id="rw_person_P11_head" radius="0.12" position="0 1.45 0" material="color:#e0c2a2" animation__head="property: rotation; from: 0 0 0; to: 8 0 0; dir: alternate; dur: 2200; loop: true; delay: 1320 ; easing: easeInOutSine">
+          <a-sphere id="rw_person_P11_hair" radius="0.12" scale="1 0.6 1" position="0 0.10 0" material="color:#a36f3b"></a-sphere>
+        </a-sphere>
+        <a-entity id="rw_person_P11_leftArmPivot" position="-0.18 1.22 0">
+          <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#457b9d"></a-box>
+          <a-sphere radius="0.035" position="0 -0.30 0" material="color:#e0c2a2"></a-sphere>
+        </a-entity>
+        <a-entity id="rw_person_P11_rightArmPivot" position="0.18 1.22 0">
+          <a-entity animation__rightArm="property: rotation; from: 10 0 0; to: 70 0 0; dir: alternate; dur: 2200; loop: true; delay: 1200; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#457b9d"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#e0c2a2">
+              <a-box width="0.02" height="0.005" depth="0.18" position="0 0 -0.09" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+            </a-sphere>
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_person_P12" position="-4.2 0 -6.82" rotation="0 0 0">
+        <a-cylinder id="rw_person_P12_torso" radius="0.16" height="0.42" position="0 1.10 0" material="color:#6d6875" animation__torso="property: position; from: 0 1.10 0; to: 0 1.11 0; dir: alternate; dur: 1600; loop: true; delay: 1380; easing: easeInOutSine"></a-cylinder>
+        <a-cylinder id="rw_person_P12_waist" radius="0.14" height="0.18" position="0 0.86 0" material="color:#343a40"></a-cylinder>
+        <a-sphere id="rw_person_P12_head" radius="0.12" position="0 1.45 0" material="color:#b98b6f" animation__head="property: rotation; from: 0 0 0; to: 8 0 0; dir: alternate; dur: 2200; loop: true; delay: 1440 ; easing: easeInOutSine">
+          <a-sphere id="rw_person_P12_hair" radius="0.12" scale="1 0.6 1" position="0 0.10 0" material="color:#1c1c1c"></a-sphere>
+        </a-sphere>
+        <a-entity id="rw_person_P12_leftArmPivot" position="-0.18 1.22 0">
+          <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#6d6875"></a-box>
+          <a-sphere radius="0.035" position="0 -0.30 0" material="color:#b98b6f"></a-sphere>
+        </a-entity>
+        <a-entity id="rw_person_P12_rightArmPivot" position="0.18 1.22 0">
+          <a-entity animation__rightArm="property: rotation; from: 10 0 0; to: 70 0 0; dir: alternate; dur: 2200; loop: true; delay: 1320; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#6d6875"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#b98b6f">
+              <a-box width="0.02" height="0.005" depth="0.18" position="0 0 -0.09" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+            </a-sphere>
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_person_P13" position="0.0 0 -5.58" rotation="0 180 0">
+        <a-cylinder id="rw_person_P13_torso" radius="0.16" height="0.42" position="0 1.10 0" material="color:#e63946" animation__torso="property: position; from: 0 1.10 0; to: 0 1.11 0; dir: alternate; dur: 1600; loop: true; delay: 1500; easing: easeInOutSine"></a-cylinder>
+        <a-cylinder id="rw_person_P13_waist" radius="0.14" height="0.18" position="0 0.86 0" material="color:#3a5a40"></a-cylinder>
+        <a-sphere id="rw_person_P13_head" radius="0.12" position="0 1.45 0" material="color:#d8b18f" animation__head="property: rotation; from: 0 0 0; to: 8 0 0; dir: alternate; dur: 2200; loop: true; delay: 1560 ; easing: easeInOutSine">
+          <a-sphere id="rw_person_P13_hair" radius="0.12" scale="1 0.6 1" position="0 0.10 0" material="color:#2b2b2b"></a-sphere>
+        </a-sphere>
+        <a-entity id="rw_person_P13_leftArmPivot" position="-0.18 1.22 0">
+          <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#e63946"></a-box>
+          <a-sphere radius="0.035" position="0 -0.30 0" material="color:#d8b18f"></a-sphere>
+        </a-entity>
+        <a-entity id="rw_person_P13_rightArmPivot" position="0.18 1.22 0">
+          <a-entity animation__rightArm="property: rotation; from: 10 0 0; to: 70 0 0; dir: alternate; dur: 2200; loop: true; delay: 1440; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#e63946"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#d8b18f">
+              <a-box width="0.02" height="0.005" depth="0.18" position="0 0 -0.09" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+            </a-sphere>
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_person_P14" position="0.0 0 -6.82" rotation="0 0 0">
+        <a-cylinder id="rw_person_P14_torso" radius="0.16" height="0.42" position="0 1.10 0" material="color:#1d3557" animation__torso="property: position; from: 0 1.10 0; to: 0 1.11 0; dir: alternate; dur: 1600; loop: true; delay: 1620; easing: easeInOutSine"></a-cylinder>
+        <a-cylinder id="rw_person_P14_waist" radius="0.14" height="0.18" position="0 0.86 0" material="color:#4a4e69"></a-cylinder>
+        <a-sphere id="rw_person_P14_head" radius="0.12" position="0 1.45 0" material="color:#c99b7a" animation__head="property: rotation; from: 0 0 0; to: 8 0 0; dir: alternate; dur: 2200; loop: true; delay: 1680 ; easing: easeInOutSine">
+          <a-sphere id="rw_person_P14_hair" radius="0.12" scale="1 0.6 1" position="0 0.10 0" material="color:#5b3a29"></a-sphere>
+        </a-sphere>
+        <a-entity id="rw_person_P14_leftArmPivot" position="-0.18 1.22 0">
+          <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#1d3557"></a-box>
+          <a-sphere radius="0.035" position="0 -0.30 0" material="color:#c99b7a"></a-sphere>
+        </a-entity>
+        <a-entity id="rw_person_P14_rightArmPivot" position="0.18 1.22 0">
+          <a-entity animation__rightArm="property: rotation; from: 10 0 0; to: 70 0 0; dir: alternate; dur: 2200; loop: true; delay: 1560; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#1d3557"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#c99b7a">
+              <a-box width="0.02" height="0.005" depth="0.18" position="0 0 -0.09" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+            </a-sphere>
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_person_P15" position="4.2 0 -5.58" rotation="0 180 0">
+        <a-cylinder id="rw_person_P15_torso" radius="0.16" height="0.42" position="0 1.10 0" material="color:#2f5d62" animation__torso="property: position; from: 0 1.10 0; to: 0 1.11 0; dir: alternate; dur: 2000; loop: true; delay: 2020; easing: easeInOutSine"></a-cylinder>
+        <a-cylinder id="rw_person_P15_waist" radius="0.14" height="0.18" position="0 0.86 0" material="color:#22223b"></a-cylinder>
+        <a-sphere id="rw_person_P15_head" radius="0.12" position="0 1.45 0" material="color:#e0c2a2" animation__head="property: rotation; from: 0 -10 0; to: 0 10 0; dir: alternate; dur: 2500; loop: true; delay: 1920 ; easing: easeInOutSine">
+          <a-sphere id="rw_person_P15_hair" radius="0.12" scale="1 0.6 1" position="0 0.10 0" material="color:#a36f3b"></a-sphere>
+        </a-sphere>
+        <a-entity id="rw_person_P15_leftArmPivot" position="-0.18 1.22 0">
+          <a-entity animation__leftArm="property: rotation; from: 0 0 -10; to: 0 0 20; dir: alternate; dur: 2400; loop: true; delay: 2120; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#2f5d62"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#e0c2a2"></a-sphere>
+          </a-entity>
+        </a-entity>
+        <a-entity id="rw_person_P15_rightArmPivot" position="0.18 1.22 0">
+          <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#2f5d62"></a-box>
+          <a-sphere radius="0.035" position="0 -0.30 0" material="color:#e0c2a2"></a-sphere>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_person_P16" position="4.2 0 -6.82" rotation="0 0 0">
+        <a-cylinder id="rw_person_P16_torso" radius="0.16" height="0.42" position="0 1.10 0" material="color:#8a4f7d" animation__torso="property: position; from: 0 1.10 0; to: 0 1.11 0; dir: alternate; dur: 2000; loop: true; delay: 2140; easing: easeInOutSine"></a-cylinder>
+        <a-cylinder id="rw_person_P16_waist" radius="0.14" height="0.18" position="0 0.86 0" material="color:#2b2d42"></a-cylinder>
+        <a-sphere id="rw_person_P16_head" radius="0.12" position="0 1.45 0" material="color:#b98b6f" animation__head="property: rotation; from: 0 -10 0; to: 0 10 0; dir: alternate; dur: 2500; loop: true; delay: 2040 ; easing: easeInOutSine">
+          <a-sphere id="rw_person_P16_hair" radius="0.12" scale="1 0.6 1" position="0 0.10 0" material="color:#1c1c1c"></a-sphere>
+        </a-sphere>
+        <a-entity id="rw_person_P16_leftArmPivot" position="-0.18 1.22 0">
+          <a-entity animation__leftArm="property: rotation; from: 0 0 -10; to: 0 0 20; dir: alternate; dur: 2400; loop: true; delay: 2240; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#8a4f7d"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#b98b6f"></a-sphere>
+          </a-entity>
+        </a-entity>
+        <a-entity id="rw_person_P16_rightArmPivot" position="0.18 1.22 0">
+          <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#8a4f7d"></a-box>
+          <a-sphere radius="0.035" position="0 -0.30 0" material="color:#b98b6f"></a-sphere>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_person_P17" position="-3.2 0 -7.18" rotation="0 180 0">
+        <a-cylinder id="rw_person_P17_torso" radius="0.16" height="0.42" position="0 1.10 0" material="color:#d4a373" animation__torso="property: position; from: 0 1.10 0; to: 0 1.11 0; dir: alternate; dur: 1600; loop: true; delay: 1980; easing: easeInOutSine"></a-cylinder>
+        <a-cylinder id="rw_person_P17_waist" radius="0.14" height="0.18" position="0 0.86 0" material="color:#343a40"></a-cylinder>
+        <a-sphere id="rw_person_P17_head" radius="0.12" position="0 1.45 0" material="color:#d8b18f" animation__head="property: rotation; from: 0 0 0; to: 8 0 0; dir: alternate; dur: 2200; loop: true; delay: 2040 ; easing: easeInOutSine">
+          <a-sphere id="rw_person_P17_hair" radius="0.12" scale="1 0.6 1" position="0 0.10 0" material="color:#2b2b2b"></a-sphere>
+        </a-sphere>
+        <a-entity id="rw_person_P17_leftArmPivot" position="-0.18 1.22 0">
+          <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#d4a373"></a-box>
+          <a-sphere radius="0.035" position="0 -0.30 0" material="color:#d8b18f"></a-sphere>
+        </a-entity>
+        <a-entity id="rw_person_P17_rightArmPivot" position="0.18 1.22 0">
+          <a-entity animation__rightArm="property: rotation; from: 10 0 0; to: 70 0 0; dir: alternate; dur: 2200; loop: true; delay: 1920; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#d4a373"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#d8b18f">
+              <a-box width="0.02" height="0.005" depth="0.18" position="0 0 -0.09" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+            </a-sphere>
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_person_P18" position="-3.2 0 -8.42" rotation="0 0 0">
+        <a-cylinder id="rw_person_P18_torso" radius="0.16" height="0.42" position="0 1.10 0" material="color:#457b9d" animation__torso="property: position; from: 0 1.10 0; to: 0 1.11 0; dir: alternate; dur: 1600; loop: true; delay: 2100; easing: easeInOutSine"></a-cylinder>
+        <a-cylinder id="rw_person_P18_waist" radius="0.14" height="0.18" position="0 0.86 0" material="color:#3a5a40"></a-cylinder>
+        <a-sphere id="rw_person_P18_head" radius="0.12" position="0 1.45 0" material="color:#c99b7a" animation__head="property: rotation; from: 0 0 0; to: 8 0 0; dir: alternate; dur: 2200; loop: true; delay: 2160 ; easing: easeInOutSine">
+          <a-sphere id="rw_person_P18_hair" radius="0.12" scale="1 0.6 1" position="0 0.10 0" material="color:#5b3a29"></a-sphere>
+        </a-sphere>
+        <a-entity id="rw_person_P18_leftArmPivot" position="-0.18 1.22 0">
+          <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#457b9d"></a-box>
+          <a-sphere radius="0.035" position="0 -0.30 0" material="color:#c99b7a"></a-sphere>
+        </a-entity>
+        <a-entity id="rw_person_P18_rightArmPivot" position="0.18 1.22 0">
+          <a-entity animation__rightArm="property: rotation; from: 10 0 0; to: 70 0 0; dir: alternate; dur: 2200; loop: true; delay: 2040; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#457b9d"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#c99b7a">
+              <a-box width="0.02" height="0.005" depth="0.18" position="0 0 -0.09" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+            </a-sphere>
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_person_P19" position="3.2 0 -7.18" rotation="0 180 0">
+        <a-cylinder id="rw_person_P19_torso" radius="0.16" height="0.42" position="0 1.10 0" material="color:#6d6875" animation__torso="property: position; from: 0 1.10 0; to: 0 1.11 0; dir: alternate; dur: 1600; loop: true; delay: 2220; easing: easeInOutSine"></a-cylinder>
+        <a-cylinder id="rw_person_P19_waist" radius="0.14" height="0.18" position="0 0.86 0" material="color:#4a4e69"></a-cylinder>
+        <a-sphere id="rw_person_P19_head" radius="0.12" position="0 1.45 0" material="color:#e0c2a2" animation__head="property: rotation; from: 0 0 0; to: 8 0 0; dir: alternate; dur: 2200; loop: true; delay: 2280 ; easing: easeInOutSine">
+          <a-sphere id="rw_person_P19_hair" radius="0.12" scale="1 0.6 1" position="0 0.10 0" material="color:#a36f3b"></a-sphere>
+        </a-sphere>
+        <a-entity id="rw_person_P19_leftArmPivot" position="-0.18 1.22 0">
+          <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#6d6875"></a-box>
+          <a-sphere radius="0.035" position="0 -0.30 0" material="color:#e0c2a2"></a-sphere>
+        </a-entity>
+        <a-entity id="rw_person_P19_rightArmPivot" position="0.18 1.22 0">
+          <a-entity animation__rightArm="property: rotation; from: 10 0 0; to: 70 0 0; dir: alternate; dur: 2200; loop: true; delay: 2160; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#6d6875"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#e0c2a2">
+              <a-box width="0.02" height="0.005" depth="0.18" position="0 0 -0.09" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+            </a-sphere>
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_person_P20" position="3.2 0 -8.42" rotation="0 0 0">
+        <a-cylinder id="rw_person_P20_torso" radius="0.16" height="0.42" position="0 1.10 0" material="color:#e63946" animation__torso="property: position; from: 0 1.10 0; to: 0 1.11 0; dir: alternate; dur: 1600; loop: true; delay: 2340; easing: easeInOutSine"></a-cylinder>
+        <a-cylinder id="rw_person_P20_waist" radius="0.14" height="0.18" position="0 0.86 0" material="color:#22223b"></a-cylinder>
+        <a-sphere id="rw_person_P20_head" radius="0.12" position="0 1.45 0" material="color:#b98b6f" animation__head="property: rotation; from: 0 0 0; to: 8 0 0; dir: alternate; dur: 2200; loop: true; delay: 2400 ; easing: easeInOutSine">
+          <a-sphere id="rw_person_P20_hair" radius="0.12" scale="1 0.6 1" position="0 0.10 0" material="color:#1c1c1c"></a-sphere>
+        </a-sphere>
+        <a-entity id="rw_person_P20_leftArmPivot" position="-0.18 1.22 0">
+          <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#e63946"></a-box>
+          <a-sphere radius="0.035" position="0 -0.30 0" material="color:#b98b6f"></a-sphere>
+        </a-entity>
+        <a-entity id="rw_person_P20_rightArmPivot" position="0.18 1.22 0">
+          <a-entity animation__rightArm="property: rotation; from: 10 0 0; to: 70 0 0; dir: alternate; dur: 2200; loop: true; delay: 2280; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#e63946"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#b98b6f">
+              <a-box width="0.02" height="0.005" depth="0.18" position="0 0 -0.09" material="color:#b8b8b8; metalness:0.2; roughness:0.4"></a-box>
+            </a-sphere>
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_person_W1" position="-1.8 0 -3.5" rotation="0 90 0" animation__walk_W1="property: position; from: -1.8 0 -3.5; to: -1.8 0 -6.5; dir: alternate; dur: 9000; loop: true; easing: linear">
+        <a-cylinder radius="0.16" height="0.42" position="0 1.10 0" material="color:#111111"></a-cylinder>
+        <a-cylinder radius="0.14" height="0.18" position="0 0.86 0" material="color:#1c1c1c"></a-cylinder>
+        <a-plane width="0.36" height="0.5" position="0 1.0 0.08" rotation="0 0 0" material="color:#2b2b2b"></a-plane>
+        <a-sphere radius="0.12" position="0 1.45 0" material="color:#d8b18f"></a-sphere>
+        <a-sphere radius="0.12" scale="1 0.6 1" position="0 1.55 0" material="color:#2b2b2b"></a-sphere>
+        <a-entity id="rw_person_W1_leftArmPivot" position="-0.18 1.22 0" rotation="45 0 0">
+          <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#111111"></a-box>
+          <a-sphere radius="0.035" position="0 -0.30 0" material="color:#d8b18f">
+            <a-cylinder radius="0.12" height="0.02" position="0 -0.02 0" material="color:#444444"></a-cylinder>
+            <a-cylinder radius="0.06" height="0.02" position="0 0.02 -0.06" material="color:#f4f1ea"></a-cylinder>
+            <a-cylinder radius="0.06" height="0.02" position="0 0.02 0.06" material="color:#f4f1ea"></a-cylinder>
+          </a-sphere>
+        </a-entity>
+        <a-entity id="rw_person_W1_rightArmPivot" position="0.18 1.22 0">
+          <a-entity animation__gesture_W1="property: rotation; from: 0 0 -10; to: 0 0 10; dir: alternate; dur: 1800; loop: true; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#111111"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#d8b18f"></a-sphere>
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_person_W2" position="1.8 0 -4.2" rotation="0 -90 0" animation__walk_W2="property: position; from: 1.8 0 -4.2; to: 4.8 0 -4.2; dir: alternate; dur: 11000; loop: true; delay:2000; easing: linear">
+        <a-cylinder radius="0.16" height="0.42" position="0 1.10 0" material="color:#111111"></a-cylinder>
+        <a-cylinder radius="0.14" height="0.18" position="0 0.86 0" material="color:#1c1c1c"></a-cylinder>
+        <a-box width="0.04" height="0.3" depth="0.02" position="0 1.2 0.16" material="color:#3a3a3a"></a-box>
+        <a-sphere radius="0.12" position="0 1.45 0" material="color:#d8b18f"></a-sphere>
+        <a-sphere radius="0.12" scale="1 0.6 1" position="0 1.55 0" material="color:#2b2b2b"></a-sphere>
+        <a-entity id="rw_person_W2_leftArmPivot" position="-0.18 1.22 0" rotation="45 0 0">
+          <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#111111"></a-box>
+          <a-sphere radius="0.035" position="0 -0.30 0" material="color:#d8b18f">
+            <a-cylinder radius="0.12" height="0.02" position="0 -0.02 0" material="color:#444444"></a-cylinder>
+            <a-cylinder radius="0.06" height="0.02" position="0 0.02 -0.06" material="color:#f4f1ea"></a-cylinder>
+            <a-cylinder radius="0.06" height="0.02" position="0 0.02 0.06" material="color:#f4f1ea"></a-cylinder>
+          </a-sphere>
+        </a-entity>
+        <a-entity id="rw_person_W2_rightArmPivot" position="0.18 1.22 0">
+          <a-entity animation__gesture_W2="property: rotation; from: 0 0 -10; to: 0 0 10; dir: alternate; dur: 1800; loop: true; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#111111"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#d8b18f">
+              <a-plane width="0.12" height="0.18" position="0 -0.10 -0.09" rotation="-90 0 0" material="src: #rw_tex_menu_board"></a-plane>
+            </a-sphere>
+          </a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity id="rw_person_B1" position="0.0 0 -8.35" rotation="0 180 0">
+        <a-cylinder radius="0.16" height="0.42" position="0 1.10 0" material="color:#1d3557"></a-cylinder>
+        <a-cylinder radius="0.14" height="0.18" position="0 0.86 0" material="color:#22223b"></a-cylinder>
+        <a-plane width="0.36" height="0.5" position="0 1.0 0.08" material="color:#6b4f3b"></a-plane>
+        <a-sphere radius="0.12" position="0 1.45 0" material="color:#d8b18f"></a-sphere>
+        <a-sphere radius="0.12" scale="1 0.6 1" position="0 1.55 0" material="color:#2b2b2b"></a-sphere>
+        <!-- arms with cleaning animations -->
+        <a-entity id="rw_person_B1_leftArmPivot" position="-0.18 1.22 0">
+          <a-entity animation__cleanArmL_B1="property: rotation; from: 20 0 0; to: 50 0 0; dir: alternate; dur: 1800; loop: true; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#1d3557"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#d8b18f">
+              <a-cylinder radius="0.04" height="0.12" position="0 0 -0.06" material="color:#ffffff; opacity:0.35; transparent:true"></a-cylinder>
+            </a-sphere>
+          </a-entity>
+        </a-entity>
+        <a-entity id="rw_person_B1_rightArmPivot" position="0.18 1.22 0">
+          <a-entity animation__cleanArmR_B1="property: rotation; from: 20 0 0; to: 50 0 0; dir: alternate; dur: 1800; loop: true; delay:300; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#1d3557"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#d8b18f"></a-sphere>
+          </a-entity>
+        </a-entity>
+        <a-entity id="rw_person_B1_head" position="0 1.45 0" rotation="0 0 0" animation__nod_B1="property: rotation; from: 0 0 0; to: 6 0 0; dir: alternate; dur: 2000; loop: true; delay:250; easing: easeInOutSine"></a-entity>
+      </a-entity>
+      <a-entity id="rw_person_C1" position="-6.0 0 -8.0" rotation="0 90 0">
+        <a-cylinder radius="0.16" height="0.42" position="0 1.10 0" material="color:#f1f1f1"></a-cylinder>
+        <a-cylinder radius="0.14" height="0.18" position="0 0.86 0" material="color:#343a40"></a-cylinder>
+        <a-cylinder radius="0.12" height="0.20" position="0 1.60 0" material="color:#ffffff"></a-cylinder>
+        <a-sphere radius="0.12" position="0 1.45 0" material="color:#d8b18f"></a-sphere>
+        <a-sphere radius="0.12" scale="1 0.6 1" position="0 1.55 0" material="color:#2b2b2b"></a-sphere>
+        <a-entity id="rw_person_C1_leftArmPivot" position="-0.18 1.22 0">
+          <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#f1f1f1"></a-box>
+          <a-sphere radius="0.035" position="0 -0.30 0" material="color:#d8b18f"></a-sphere>
+        </a-entity>
+        <a-entity id="rw_person_C1_rightArmPivot" position="0.18 1.22 0">
+          <a-entity animation__stir_C1="property: rotation; from: -20 0 0; to: 20 0 0; dir: alternate; dur: 1200; loop: true; easing: easeInOutSine">
+            <a-box width="0.06" height="0.28" depth="0.06" position="0 -0.14 0" material="color:#f1f1f1"></a-box>
+            <a-sphere radius="0.035" position="0 -0.30 0" material="color:#d8b18f">
+              <a-cylinder radius="0.05" height="0.15" position="0 0 -0.07" material="color:#cccccc"></a-cylinder>
+            </a-sphere>
+          </a-entity>
+        </a-entity>
+      </a-entity>
+        </a-entity>
+        <a-entity id="rw_barArea" position="0 0 -8.2">
+        <a-box width="8.0" height="1.05" depth="0.7" position="0 0.525 0" material="color:#4d3a2a; roughness:1"></a-box>
+        <a-box width="8.0" height="0.05" depth="0.75" position="0 1.05 0" material="color:#5d3e2a; roughness:1"></a-box>
+        <!-- shelves -->
+        <a-box width="6.5" height="0.12" depth="0.18" position="0 1.45 -0.35" material="color:#3a2a20"></a-box>
+        <a-box width="6.5" height="0.12" depth="0.18" position="0 1.80 -0.35" material="color:#3a2a20"></a-box>
+        <a-box width="6.5" height="0.12" depth="0.18" position="0 2.15 -0.35" material="color:#3a2a20"></a-box>
+      </a-entity>
+        <a-entity id="rw_kitchen" position="-6.0 0 -8.0">
+        <a-box width="2.8" height="0.9" depth="0.6" position="0 0.45 0" material="color:#4d4d4d"></a-box>
+        <a-box width="0.7" height="0.7" depth="0.6" position="0.9 0.35 -0.55" material="color:#5b5b5b"></a-box>
+        <a-box width="0.7" height="0.7" depth="0.6" position="-0.9 0.35 -0.55" material="color:#5b5b5b"></a-box>
+        <a-box width="1.2" height="0.35" depth="0.6" position="0 2.5 -0.55" material="color:#5b5b5b"></a-box>
+      </a-entity>
+        <a-entity id="rw_decor">
+        <!-- plants -->
+        <a-entity id="rw_plant_1" position="-8 0 -2">
+          <a-cylinder radius="0.18" height="0.32" position="0 0.16 0" material="color:#6b4f3b"></a-cylinder>
+          <a-cylinder radius="0.165" height="0.04" position="0 0.30 0" material="color:#3a2b20"></a-cylinder>
+          <a-cylinder radius="0.04" height="0.35" position="0 0.50 0" material="color:#3a5a40"></a-cylinder>
+          <a-cone radius-bottom="0.12" radius-top="0.00" height="0.25" position="0 0.75 0" material="color:#2f5d62"></a-cone>
+        </a-entity>
+        <a-entity id="rw_plant_2" position="8 0 -2">
+          <a-cylinder radius="0.18" height="0.32" position="0 0.16 0" material="color:#6b4f3b"></a-cylinder>
+          <a-cylinder radius="0.165" height="0.04" position="0 0.30 0" material="color:#3a2b20"></a-cylinder>
+          <a-cylinder radius="0.04" height="0.35" position="0 0.50 0" material="color:#3a5a40"></a-cylinder>
+          <a-cone radius-bottom="0.12" radius-top="0.00" height="0.25" position="0 0.75 0" material="color:#2f5d62"></a-cone>
+        </a-entity>
+        <a-entity id="rw_plant_3" position="-8 0 -9">
+          <a-cylinder radius="0.18" height="0.32" position="0 0.16 0" material="color:#6b4f3b"></a-cylinder>
+          <a-cylinder radius="0.165" height="0.04" position="0 0.30 0" material="color:#3a2b20"></a-cylinder>
+          <a-cylinder radius="0.04" height="0.35" position="0 0.50 0" material="color:#3a5a40"></a-cylinder>
+          <a-cone radius-bottom="0.12" radius-top="0.00" height="0.25" position="0 0.75 0" material="color:#2f5d62"></a-cone>
+        </a-entity>
+        <a-entity id="rw_plant_4" position="8 0 -9">
+          <a-cylinder radius="0.18" height="0.32" position="0 0.16 0" material="color:#6b4f3b"></a-cylinder>
+          <a-cylinder radius="0.165" height="0.04" position="0 0.30 0" material="color:#3a2b20"></a-cylinder>
+          <a-cylinder radius="0.04" height="0.35" position="0 0.50 0" material="color:#3a5a40"></a-cylinder>
+          <a-cone radius-bottom="0.12" radius-top="0.00" height="0.25" position="0 0.75 0" material="color:#2f5d62"></a-cone>
+        </a-entity>
+        <!-- frames on walls -->
+        <a-entity id="rw_frame_l1" position="-8.7 1.6 -2.2">
+          <a-plane width="0.9" height="0.6" material="src: #rw_tex_art_01"></a-plane>
+        </a-entity>
+        <a-entity id="rw_frame_l2" position="-8.7 1.6 -3.6">
+          <a-plane width="0.9" height="0.6" material="src: #rw_tex_art_02"></a-plane>
+        </a-entity>
+        <a-entity id="rw_frame_l3" position="-8.7 1.6 -5.0">
+          <a-plane width="0.9" height="0.6" material="src: #rw_tex_art_01"></a-plane>
+        </a-entity>
+        <a-entity id="rw_frame_l4" position="-8.7 1.6 -6.4">
+          <a-plane width="0.9" height="0.6" material="src: #rw_tex_art_02"></a-plane>
+        </a-entity>
+        <!-- right wall frames -->
+        <a-entity id="rw_frame_r1" position="8.7 1.6 -2.2" rotation="0 180 0">
+          <a-plane width="0.9" height="0.6" material="src: #rw_tex_art_02"></a-plane>
+        </a-entity>
+        <a-entity id="rw_frame_r2" position="8.7 1.6 -3.6" rotation="0 180 0">
+          <a-plane width="0.9" height="0.6" material="src: #rw_tex_art_01"></a-plane>
+        </a-entity>
+        <a-entity id="rw_frame_r3" position="8.7 1.6 -5.0" rotation="0 180 0">
+          <a-plane width="0.9" height="0.6" material="src: #rw_tex_art_02"></a-plane>
+        </a-entity>
+        <a-entity id="rw_frame_r4" position="8.7 1.6 -6.4" rotation="0 180 0">
+          <a-plane width="0.9" height="0.6" material="src: #rw_tex_art_01"></a-plane>
+        </a-entity>
+        <!-- signs -->
+        <a-plane id="rw_sign_exit" width="0.5" height="0.2" position="0 1.8 2.0" rotation="0 180 0" material="src: #rw_tex_sign_exit"></a-plane>
+        <a-plane id="rw_sign_wc" width="0.5" height="0.2" position="6.8 1.8 -8.0" rotation="0 -90 0" material="src: #rw_tex_sign_wc"></a-plane>
+      </a-entity>
+        <a-entity id="rw_lights">
+        <a-light id="rw_light_bar" type="point" color="#ffddb3" intensity="0.75" distance="10" position="0 2.1 -8.0"></a-light>
+        <a-light id="rw_light_tableRow1_A" type="point" color="#ffddb3" intensity="0.35" distance="6" position="-3.2 2.1 -2.2"></a-light>
+        <a-light id="rw_light_tableRow1_B" type="point" color="#ffddb3" intensity="0.35" distance="6" position="0.0 2.1 -2.2"></a-light>
+        <a-light id="rw_light_tableRow1_C" type="point" color="#ffddb3" intensity="0.35" distance="6" position="3.2 2.1 -2.2"></a-light>
+        <a-light id="rw_light_mid_A" type="point" color="#ffddb3" intensity="0.3" distance="6" position="-3.2 2.1 -4.2"></a-light>
+        <a-light id="rw_light_mid_B" type="point" color="#ffddb3" intensity="0.3" distance="6" position="3.2 2.1 -4.2"></a-light>
+        <a-light id="rw_light_row3_A" type="point" color="#ffddb3" intensity="0.28" distance="6" position="-4.2 2.1 -6.2"></a-light>
+        <a-light id="rw_light_row3_B" type="point" color="#ffddb3" intensity="0.28" distance="6" position="0.0 2.1 -6.2"></a-light>
+        <a-light id="rw_light_row3_C" type="point" color="#ffddb3" intensity="0.28" distance="6" position="4.2 2.1 -6.2"></a-light>
+        <a-light id="rw_light_kitchen" type="point" color="#fff2d5" intensity="0.35" distance="7" position="-6.0 2.2 -8.0"></a-light>
+      </a-entity>
+      </a-entity>
+      <!-- Fim do mundo do restaurante -->
       <script type="module" src="/src/main.js"></script>
     </a-scene>
   </body>
