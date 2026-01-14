@@ -350,24 +350,14 @@ export class App {
 
     // ações (compactas)
     const btnReset = makeButton({
-      label: 'Reset',
-      width: 0.22,
-      height: 0.050,
-      action: 'resetDish',
-      payload: {},
-      tooltip: 'Volta ao default.'
+     
     });
-    btnReset.setAttribute('position', '-0.25 0.04 0');
+    btnReset.setAttribute('position', '-0.25 100 0');
 
     const btnPreset = makeButton({
-      label: 'Preset',
-      width: 0.22,
-      height: 0.050,
-      action: 'savePreset',
-      payload: {},
-      tooltip: 'Guarda as opções em memória.'
+      
     });
-    btnPreset.setAttribute('position', '0.02 0.04 0');
+    btnPreset.setAttribute('position', '0.02 100 0');
 
     const btnAdd = makeButton({
       label: 'Adicionar',
